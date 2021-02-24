@@ -1,0 +1,18 @@
+.form-group {
+    width: 100%;
+}
+.login {
+    margin-top: 5%;
+    width: 40%;
+    height: auto;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.login a {
+    display: inline-block;
+    position: absolute;
+    top: 330px;
+    left: 820px;
+}

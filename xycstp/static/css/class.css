@@ -1,0 +1,18 @@
+.container {
+    /* background-color: grey; */
+}
+.class-img {
+    width: 400px;
+    height: 400px;
+    float: left;
+}
+.class-con h4{
+    text-align: center;
+}
+.assess {
+    /* margin: 10px; */
+}
+.page {
+    float: right;
+    margin:0 2px;
+}

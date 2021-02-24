@@ -1,0 +1,156 @@
+{% extends 'tutorBase.html' %}
+
+{% block body %}
+<div class="container searchTutor">
+    <h2 class="page-header">请选择要筛选的老师：</h2>
+    <form action="/findTutor/suitableTutor/" method="POST" id="form1">
+        {% csrf_token %}
+        <div class="row">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" myAttr="Grade">
+                    年级
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="selLevel">
+                    <a class="dropdown-item">年级</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" myAttr="Subject">
+                    科目
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="selSubject">
+                    <a class="dropdown-item">科目</a>
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" myAttr="Gender">
+                    性别
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item">性别</a>
+                    <a class="dropdown-item">男</a>
+                    <a class="dropdown-item">女</a>
+                </div>
+            </div>
+
+            &nbsp;&nbsp;&nbsp;
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" myAttr="Province">
+                    省
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="selPosProvince">
+                    <a class="dropdown-item">省</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" myAttr="City">
+                    市
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="selPosCity">
+                    <a class="dropdown-item">市</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" myAttr="Area">
+                    区
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="selArea">
+                    <a class="dropdown-item">区</a>
+                </div>
+            </div>
+
+            &nbsp;&nbsp;&nbsp;
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" myAttr="ageStart">
+                    年龄开始
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="ageStart">
+                    <a class="dropdown-item">年龄开始</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false" myAttr="ageEnd">
+                    年龄结束
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="ageEnd">
+                    <a class="dropdown-item">年龄结束</a>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="field">
+                    <input type="text" id="autoSchool" name="autoSchool" placeholder="毕业学校，如：清华大学" myAttr="GraduateSchool">
+                </div>
+            </div>
+        </div>
+        <br>
+    </form>
+    <div id="forResultHtml"></div>
+</div>
+<div class="container tutor">
+    <div class="row" id="AllTeacher">
+        
+    </div>
+</div>
+{% endblock %}
+
+<!-- 
+    {% for teacher, OneTeaTags in zipped_data %}
+        <div class="col-sm-3">
+            <a href="#" class="card" style="width: 16rem; padding-bottom: 0;">
+                <img data-src="holder.js/100px250" class="card-img-top" alt="imgCard">
+                <div class="card-body" style="padding: 10px 15px;">
+                    <h4 class="card-title">{{teacher.user.userName}}</h4>
+                    <p class="education" style="margin-bottom: 0;font-size: 14px;">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award-fill" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8 0l1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
+                            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                        </svg>
+                        {{teacher.detailInfo.education}}</p>
+                    <p class="address" style="margin-bottom: 0;font-size: 14px;">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        </svg>
+                        {{teacher.detailInfo.address}}</p>
+                    <p class="major" style="margin-bottom: 0;font-size: 14px;">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-book" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M3.214 1.072C4.813.752 6.916.71 8.354 2.146A.5.5 0 0 1 8.5 2.5v11a.5.5 0 0 1-.854.354c-.843-.844-2.115-1.059-3.47-.92-1.344.14-2.66.617-3.452 1.013A.5.5 0 0 1 0 13.5v-11a.5.5 0 0 1 .276-.447L.5 2.5l-.224-.447.002-.001.004-.002.013-.006a5.017 5.017 0 0 1 .22-.103 12.958 12.958 0 0 1 2.7-.869zM1 2.82v9.908c.846-.343 1.944-.672 3.074-.788 1.143-.118 2.387-.023 3.426.56V2.718c-1.063-.929-2.631-.956-4.09-.664A11.958 11.958 0 0 0 1 2.82z" />
+                            <path fill-rule="evenodd"
+                                d="M12.786 1.072C11.188.752 9.084.71 7.646 2.146A.5.5 0 0 0 7.5 2.5v11a.5.5 0 0 0 .854.354c.843-.844 2.115-1.059 3.47-.92 1.344.14 2.66.617 3.452 1.013A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.276-.447L15.5 2.5l.224-.447-.002-.001-.004-.002-.013-.006-.047-.023a12.582 12.582 0 0 0-.799-.34 12.96 12.96 0 0 0-2.073-.609zM15 2.82v9.908c-.846-.343-1.944-.672-3.074-.788-1.143-.118-2.387-.023-3.426.56V2.718c1.063-.929 2.631-.956 4.09-.664A11.956 11.956 0 0 1 15 2.82z" />
+                        </svg>
+                        {{teacher.detailInfo.major}}</p>
+                    <span class="badge badge-info">about</span>
+                    <p style="margin-bottom: 0;font-size: 15px;">
+                    {{teacher.detailInfo.introduction}}</p>
+                    
+                    {% for tag in OneTeaTags %}
+                    <span class="badge badge-primary">
+                        {{tag.GradeStartToChinese}}~{{tag.GradeEndToChinese}}
+                    </span>
+                    
+                        {% for eachSubject in tag.getSubjectList %}
+                        <span class="badge badge-success">{{eachSubject}}</span>
+                        {% endfor %}
+                    <br>
+                    {% endfor %}
+                </div>
+            </a>
+            <br>
+        </div>
+        {% endfor %} -->

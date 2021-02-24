@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/manager.css">
+
+    <title>认证管理</title>
+</head>
+
+<body>
+    <div class="header">
+        <img src="/static/img/qidian.png" alt="" class="logo">
+        <div class="title">认证管理</div>
+    </div>
+    <table border="1" align="center" cellpadding="1" cellspacing="0" bgcolor="#f1f1f1">
+        <tr class="box4">
+            <td>用户名</td>
+            <td>教师资格证</td>
+            <td>学生证</td>
+            <td>身份证</td>
+            <td>英语证</td>
+            <td>其他</td>
+        </tr>
+        {% for obj in objList %}
+        <tr>
+
+            <td class='box2'>{{ obj.id }}</td>
+
+
+            <!-- 老师证 -->
+            <td class='box2'>
+                {% if obj.teacherStatus == 1 %}
+                <img src="/medias/{{ obj.teacherLicense }}" alt="" class="box1">
+                <form action="{% url 'manager' %}" method="post">
+                    <input type="radio" name='number' value="12">通过
+                    <input type="radio" name="number" value="13">不通过
+                    <input type="hidden" name="id" value="{{ obj.id }}" />
+                    <input type="submit" class="box3">
+                </form>
+                {% elif obj.teacherStatus == 2 %}
+                <img src="/medias/{{ obj.teacherLicense }}" alt="" class="box1">
+                <p>认证通过！</p>
+                {% elif obj.teacherStatus == 3 %}
+                <img src="/medias/{{ obj.teacherLicense }}" alt="" class="box1">
+                <p>认证失败！</p>
+                {% endif %}
+            </td>
+
+
+            <!-- 学生证 -->
+            <td class='box2'>
+                {% if obj.studentStatus == 1 %}
+                <img src="/medias/{{ obj.studentLicense }}" alt="" class="box1">
+                <form action="{% url 'manager' %}" method="post">
+                    <input type="radio" name='number' value="22">通过
+                    <input type="radio" name="number" value="23">不通过
+                    <input type="hidden" name="id" value="{{ obj.id }}" />
+                    <input type="submit" class="box3">
+                </form>
+                {% elif obj.studentStatus == 2 %}
+                <img src="/medias/{{ obj.studentLicense }}" alt="" class="box1">
+                <p>认证通过！</p>
+                {% elif obj.studentStatus == 3 %}
+                <img src="/medias/{{ obj.studentLicense }}" alt="" class="box1">
+                <p>认证失败！</p>
+                {% endif %}
+            </td>
+
+
+            <!-- 身份证 -->
+            <td class='box2'>
+                {% if obj.idStatus == 1 %}
+                <img src="/medias/{{ obj.idCard }}" alt="" class="box1">
+                <form action="{% url 'manager' %}" method="post">
+                    <input type="radio" name='number' value="32">通过
+                    <input type="radio" name="number" value="33">不通过
+                    <input type="hidden" name="id" value="{{ obj.id }}" />
+                    <input type="submit" class="box3">
+                </form>
+                {% elif obj.idStatus == 2 %}
+                <img src="/medias/{{ obj.idCard }}" alt="" class="box1">
+                <p>认证通过！</p>
+                {% elif obj.idStatus == 3 %}
+                <img src="/medias/{{ obj.idCard }}" alt="" class="box1">
+                <p>认证失败！</p>
+                {% endif %}
+            </td>
+
+
+            <!-- 英语证 -->
+            <td class='box2'>
+                {% if obj.EnglishStatus == 1 %}
+                <img src="/medias/{{ obj.EnglishLevel }}" alt="" class="box1">
+                <form action="{% url 'manager' %}" method="post">
+                    <input type="radio" name='number' value="42">通过
+                    <input type="radio" name="number" value="43">不通过
+                    <input type="hidden" name="id" value="{{ obj.id }}" />
+                    <input type="submit" class="box3">
+                </form>
+                {% elif obj.EnglishStatus == 2 %}
+                <img src="/medias/{{ obj.EnglishLevel }}" alt="" class="box1">
+                <p>认证通过！</p>
+                {% elif obj.EnglishStatus == 3 %}
+                <img src="/medias/{{ obj.EnglishLevel }}" alt="" class="box1">
+                <p>认证失败！</p>
+                {% endif %}
+            </td>
+
+
+            <!-- 其他证 -->
+            <td class='box2'>
+                {% if obj.ElseStatus == 1 %}
+                <img src="/medias/{{ obj.Else }}" alt="" class="box1">
+                <form action="{% url 'manager' %}" method="post">
+                    <input type="radio" name='number' value="52">通过
+                    <input type="radio" name="number" value="53">不通过
+                    <input type="hidden" name="id" value="{{ obj.id }}" />
+                    <input type="submit" class="box3">
+                </form>
+                {% elif obj.ElseStatus == 2 %}
+                <img src="/medias/{{ obj.Else }}" alt="" class="box1">
+                <p>认证通过！</p>
+                {% elif obj.ElseStatus == 3 %}
+                <img src="/medias/{{ obj.Else }}" alt="" class="box1">
+                <p>认证失败！</p>
+                {% endif %}
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+
+    </div>
+
+</body>
+
+</html>

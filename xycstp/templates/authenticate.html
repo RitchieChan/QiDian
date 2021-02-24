@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/authenticate1.css">
+    <title>老师认证</title>
+</head>
+
+<body>
+    <div id="authenticate2">
+        <div class="header">
+            <img src="/static/img/qidian.png" alt="" class="logo">
+            <div class="title">老师认证</div>
+        </div>
+        <div>
+            <!-- 注释说明 -->
+            <div id="introduce">
+                <div class="box">
+                    <h5>为保证本站的诚信环境，以下几种照片，经网站管理人员审核通过后，您就可成为星云家教网的认证老师，具体操作如下：<br></h5>
+                    <p> 1.教师资格证与学生证两项必须且只能提交其中一项<br></p>
+                    <p> 2.身份证必须提交<br></p>
+                    <p> 3.英语考试证可提交四六级或雅思托福等考试成绩证明，非必须提交，但提交越完善，越方便于找到工作<br></p>
+                    <p> 4.自定义认证是指，用户可自己填写。具体如辅导机构工作证明、各种比赛获奖证书等<br></p>
+                    <p> 5.所有证件不得遮挡编号，有照片的证件需要露出本人照片、和家教信息相符的姓名、不得只上传封皮照片。<br></p>
+                    <p> 星云家教网郑重承诺：用户上传的所有证件图片信息，仅供本站审核使用，非经本人允许，决不公开。<br></p>
+                    <p> 最后的小提示：认证的证件越全面，您被客服推荐、家长查看的机率就越高</p>
+                </div>
+            </div>
+
+            <!-- 上传图片区 -->
+            <div class="feedback">
+                <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在线提交证件图片,24小时内快速认证（图片要求小于1M、jpg格式）</h3>
+                <table width="95%" border="1" align="center" cellpadding="1" cellspacing="0" class="table-result">
+                    {% csrf_token %}
+
+
+                    <!-- 老师 -->
+                    <form action="{% url 'authenticate' %}" method="post" enctype="multipart/form-data">
+
+                        <tr>
+                            <td class="td1">教师资格证</td>
+                            <td class="td2">
+                                {% if obj.teacherStatus == Null or obj.teacherStatus == 0%}
+                                <input type="file" name="0" /><input type="hidden" name="cid" value="1" />
+                                {% elif obj.teacherStatus == 1 %}
+                                <div>正在审核中.....</div>
+                                {% elif obj.teacherStatus == 2 %}
+                                <div>认证已通过！</div>
+                                {% elif obj.teacherStatus == 3 %}
+                                <input type="file" name="0" /><input type="hidden" name="cid" value="1" />
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;认证失败！可再次上传认证图片！</div>
+                                {% endif %}
+                            </td>
+                            <td class="td3" align="center">
+                                <div>仅供网站审核，不对任何人公开</div>
+                            </td>
+                            <td class="td4">
+                                <input type="submit" value="上传" class="input" />
+                            </td>
+                        </tr>
+                    </form>
+
+
+                    <!-- 学生 -->
+                    <form action="{% url 'authenticate' %}" method="post" enctype="multipart/form-data">
+                        <tr>
+                            <td class="td1">学生证</td>
+                            <td class="td2">
+                                {% if obj.studentStatus == Null or obj.studentStatus == 0%}
+                                <input type="file" name="0" /><input type="hidden" name="cid" value="2" />
+                                {% elif obj.studentStatus == 1 %}
+                                <div>正在审核中.....</div>
+                                {% elif obj.studentStatus == 2 %}
+                                <div>认证已通过！</div>
+                                {% elif obj.studentStatus == 3 %}
+                                <input type="file" name="0" /><input type="hidden" name="cid" value="2" />
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;认证失败！可再次上传认证图片！</div>
+                                {% endif %}
+                            </td>
+                            <td class="td3" align="center">
+                                <div>仅供网站审核，不对任何人公开</div>
+                            </td>
+                            <td class="td4">
+                                <input type="submit" value="上传" class="input" />
+                            </td>
+                        </tr>
+                    </form>
+
+
+                    <!-- 身份证 -->
+                    <form action="{% url 'authenticate' %}" method="post" enctype="multipart/form-data">
+                        <tr>
+                            <td class="td1">身份证</td>
+                            <td class="td2">
+                                {% if obj.idStatus == Null or obj.idStatus == 0 %}
+                                <input type="file" name="0" /><input type="hidden" name="cid" value="3" />
+                                {% elif obj.idStatus == 1 %}
+                                <div>正在审核中.....</div>
+                                {% elif obj.idStatus == 2 %}
+                                <div>认证已通过！</div>
+                                {% elif obj.idStatus == 3 %}
+                                <input type="file" name="0" /><input type="hidden" name="cid" value="3" />
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;认证失败！可再次上传认证图片！</div>
+                                {% endif %}
+                            </td>
+                            <td class="td3" align="center">
+                                <div>仅供网站审核，不对任何人公开</div>
+                            </td>
+                            <td class="td4">
+                                <input type="submit" value="上传" class="input" />
+                            </td>
+                        </tr>
+                    </form>
+
+
+                    <!-- 英语 -->
+                    <form action="{% url 'authenticate' %}" method="post" enctype="multipart/form-data">
+                        <tr>
+                            <td class="td1">英语考试证</td>
+                            <td class="td2">
+                                {% if obj.EnglishStatus == Null or obj.EnglishStatus == 0%}
+                                <input type="file" name="0" /><input type="hidden" name="cid" value="4" />
+                                {% elif obj.EnglishStatus == 1 %}
+                                <div>正在审核中.....</div>
+                                {% elif obj.EnglishStatus == 2 %}
+                                <div>认证已通过！</div>
+                                {% elif obj.EnglishStatus == 3 %}
+                                <input type="file" name="0" /><input type="hidden" name="cid" value="4" />
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;认证失败！可再次上传认证图片！</div>
+                                {% endif %}
+                            </td>
+                            <td class="td3" align="center">
+                                <div>仅供网站审核，不对任何人公开</div>
+                            </td>
+                            <td class="td4">
+                                <input type="submit" value="上传" class="input" />
+                            </td>
+                        </tr>
+                    </form>
+
+
+                    <!-- 其他 -->
+                    <form action="{% url 'authenticate' %}" method="post" enctype="multipart/form-data">
+                        <tr>
+                            <td class="td1">其他认证</td>
+                            <td class="td2">
+                                {% if obj.ElseStatus == Null or obj.ElseStatus == 0%}
+                                <input type="file" name="0" /><input type="hidden" name="cid" value="5" />
+                                {% elif obj.ElseStatus == 1 %}
+                                <div>正在审核中.....</div>
+                                {% elif obj.ElseStatus == 2 %}
+                                <div>认证已通过！</div>
+                                {% elif obj.ElseStatus == 3 %}
+                                <input type="file" name="0" /><input type="hidden" name="cid" value="5" />
+                                <div>&nbsp;&nbsp;&nbsp;&nbsp;认证失败！可再次上传认证图片！</div>
+                                {% endif %}
+                            </td>
+                            <td class="td3" align="center">
+                                <div>仅供网站审核，不对任何人公开</div>
+                            </td>
+                            <td class="td4">
+                                <input type="submit" value="上传" class="input" />
+                            </td>
+                        </tr>
+                    </form>
+
+                </table>
+                <br />
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

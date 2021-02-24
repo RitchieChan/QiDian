@@ -1,0 +1,47 @@
+.logo{
+    display: inline-block;
+    margin-left:600px;
+    height: 100px;
+}
+.title{
+    display: inline-block;
+    position: absolute;
+    top:20px;
+    left:720px;
+    font-weight: 700;
+    font-size: 50px;
+}
+.box1{
+    width: 200px;
+    height: 100px;
+}
+.box2{
+    width: 200px;
+    height: 150px;
+    margin-left: 25px;
+}
+.box3{
+    margin: 0 auto;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+.box3:hover {
+    background-color: rgb(82, 219, 40);
+}
+.box4{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    height: 50px;
+    width:150px;
+    font-weight: 700;
+}
+table {
+    margin: auto;
+    text-align: center;
+    background-color: whitesmoke;
+    /* border-radius: 10px; */
+}
+

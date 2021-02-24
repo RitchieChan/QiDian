@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传</title>
+</head>
+<style>
+
+</style>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+    function downloadUrl(src) {
+        var $a = document.createElement('a');
+        $a.setAttribute("href", src);
+        $a.setAttribute("download", "");
+        var evObj = document.createEvent('MouseEvents');
+        evObj.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
+        $a.dispatchEvent(evObj);
+    }
+    // 文件下载函数
+</script>
+
+<body>
+    <!-- 文件列表 -->
+    <div class="fileList">
+        {% for fp in filePath%}
+        <span>{{fp.name}}</span>
+        <!-- 文件名 -->
+        <button onclick='downloadUrl("{{fp.path}}")'>点击下载文件</button><br>
+        <!-- 绑定函数 传递文件下载路径 -->
+        <input type="hidden" class="file_id" value="{{fp.id}}">
+        <!-- 文件id 更新文件列表用到 -->
+        {% endfor %}
+    </div>
+    <!-- 文件上传表单 -->
+    <form action="/personal/filePost/" id="fileForm" method="POST" enctype="multipart/form-data">
+        请上传文件<input type="file" name="file" id="file">
+        <input type="submit" value="上传">
+        <input type="hidden" name="postType" value="loadFile">
+        <!-- 请求类型 -->
+        <input type="hidden" class="classId" name="classId" value="{{classId}}">
+        <!-- 对应文件权限id -->
+    </form>
+
+</body>
+<script>
+    // 更新文件函数，与更新对话的函数思路相同
+    function updateFile() {
+
+        $.post(
+            "/personal/filePost/",
+            {
+                classId: $(".classId").val(),
+                lastFileId: $(".file_id").last().val(),
+                postType: 'get_file'
+            },
+            function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    $('.fileList').append("<span>" + data[i][0] + "</span>");
+                    $('.fileList').append('<button onclick="downloadUrl(' + "'" + data[i][1] + "')"
+                        + '">点击下载文件</button><br>');
+                    $('.fileList').append('<input type="hidden" class="file_id" value="' + data[i][0] + '">');
+
+                }
+
+            });
+        setTimeout("updateFile()", 1000);
+    }
+
+    $(function () {
+        updateFile();
+
+    });
+
+
+
+</script>
+
+</html>

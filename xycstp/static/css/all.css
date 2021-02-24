@@ -1,0 +1,29 @@
+body {
+    background-color: whitesmoke;
+    padding: 0px;
+    margin: 0px;
+}
+
+.log {
+    color: #ffffff;
+    height: 50px;
+}
+.log:hover {
+    text-decoration: none;
+    color: springgreen;
+}
+.right {
+    float: right;
+}
+.copyrights {
+    width: 100%;
+    padding:2px 0 2px 0;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.text-center {
+    text-align: center;
+}
+.wrongInputBorder{
+    border-color: lightsalmon;
+	box-shadow: 0 0 0 0.2rem lightsalmon;
+}

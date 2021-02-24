@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+    .send_message {
+        color: #98e165;
+    }
+</style>
+
+
+<body>
+    <!-- 消息列表区 -->
+    <div class="msgList ">
+        {% for message in messages %}
+        {% ifequal id_send message.sender_id %}
+        <!-- 判断消息是发送的，还是接受的 -->
+        <div class="message_box">
+            <p class="send_message">{{message.text}}</p>
+            <!-- 消息 -->
+        </div>
+        <input type="hidden" class="chat_id" value="{{message.id}}">
+        <!-- 用于追踪对话在数据库中的ID方便操作 -->
+        {% else %}
+        <p>{{message.text}}</p>
+        <input type="hidden" class="chat_id" value="{{message.id}}">
+        <!-- 用于追踪对话在数据库中的ID方便操作 -->
+        {% endifequal %}
+        {% endfor %}
+
+    </div>
+    <!-- 列表用于发送消息 -->
+    <form action="" method="POST" id="chat_form">
+        输入框：<input type="text" name="text" class="text">
+        <input type="submit" value="发送">
+        <input type="hidden" name="id_send" class="id_send" value="{{id_send}}">
+        <!-- 消息发送者ID -->
+        <input type="hidden" name="id_receive" class="id_receive" value="{{id_receive}}">
+        <!-- 消息接受者Id -->
+        <input type="hidden" name="post_type" value="send_chat">
+        <!-- 请求类型 -->
+
+    </form>
+</body>
+<script>
+    function updateMsg() {
+
+        $.post(
+            "/personal/post/",
+            {
+                id_send: $(".id_send").val(),
+                id_receive: $(".id_receive").val(),
+                last_chat_id: $(".chat_id").last().val(),
+                post_type: 'get_chat'
+                // 请求所需数据
+            },
+            function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i][1] == $(".id_send").val()) {
+                        $('.msgList').append('<div><p class="send_message">' + data[i][0] + '</p></div>');
+                    }
+                    else {
+                        $('.msgList').append('<p >' + data[i][0] + '</p>');
+                    }
+                    $('.msgList').append('<input type="hidden" class="chat_id" value="' + data[i][3] + ' ">');
+                    // 回调函数把得到的消息数据直接写入页面
+                }
+
+            });
+        setTimeout("updateMsg()", 1000);
+        // 还是不明白原理。。。但是可以实现更新消息
+    }
+
+    $(function () {
+
+        updateMsg();
+        $("#chat_form").submit(function () {
+            //ajax 提交表单  
+            $.post("/personal/post/",
+                $('#chat_form').serialize(),
+                function (data) {
+
+                    $(".text").val("");  //消息发送成功后清空内容框  
+                }, 'text');
+            return false;       //阻止表单提交  
+        });
+
+
+    });
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星云 大学生家教平台</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/tutor.css">
+    <link rel="stylesheet" href="/static/css/all.css">
+    <link rel="stylesheet" href="/static/findTutor/css/jquery.autocompleter.css">
+    <link rel="stylesheet" href="/static/findTutor/css/myCompleter.css">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/qidian.ico">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="/static/img/logo.png"> -->
+    {% block privateCSS %}
+    {% endblock %}
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#4f8cd4;">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <img src="/static/img/qidian.png" height="50px" class="d-inline-block align-top m-auto" alt="星云大学生家教平台">
+            <div style="height:50px;line-height:50px" class="h4 d-inline-block">星云 大学生家教平台</div>
+          </a>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">主页</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/findTutor/">导师</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/bbs/">学习社区</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/train/">题库</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/personal/">个人中心</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    {% block body %}
+    {% endblock %}
+    <!-- footer -->
+    <div class="copyrights text-center" id="footer">
+        <div class="bottom">© 2020 奇点团队 Company name All rights reserved
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802030175">
+        <img src="/static/img/beian.png">京公网安备 11010802030175号</a> 
+        <a href="http://beian.miit.gov.cn">京ICP备19051098号</a>
+    </div>
+    </div>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/findTutor/js/holder.min.js"></script>
+    <script src="/static/findTutor/js/functions.js"></script>
+    <script src="/static/findTutor/js/jquery.autocompleter.js"></script>
+    <!-- <script src="/static/findTutor/js/AllSelect.js"></script> -->
+    <script src="/static/findTutor/js/NewAllSelect.js"></script>
+    {% block privateJS %}
+    {% endblock %}
+</body>
+</html>

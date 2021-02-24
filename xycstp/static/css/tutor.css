@@ -1,0 +1,28 @@
+.tutor a {
+    color: black;
+    padding-bottom: 10px;
+}
+.tutor a:hover {
+    text-decoration: none;
+}
+.tutor h3 {
+    text-align: center;
+}
+.col-sm-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.tutor .card:hover {
+    box-shadow: 0 0 1px 1px rgba(94, 167, 189, 0.5);
+}
+.tutor ul {
+    padding: 0;
+    margin: 0;
+}
+.tutor ul li {
+    list-style: none;
+}
+.tutor .footer {
+    height: 10px;
+}

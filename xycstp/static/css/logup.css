@@ -1,0 +1,32 @@
+.login-title {
+    color:white;
+}
+.login-body {
+    margin-top:2%;
+}
+.login-content {
+    margin-top:2%;
+}
+.content-left {
+    background:#000000;
+    opacity:0.5;
+    color: #ffffff;
+    border-radius: 5px;
+}
+.logup {
+    padding:5% 5% 5% 5%;
+    background:#ffffff;
+    opacity:0.9;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: auto;
+}
+.logup form>a {
+    display: inline-block;
+    position: absolute;
+    top: 330px;
+    left: 820px;
+}
+.btn a {
+    color: white;
+}

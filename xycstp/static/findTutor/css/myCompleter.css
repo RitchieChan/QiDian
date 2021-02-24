@@ -1,0 +1,65 @@
+/* .field {
+    width: 200px;
+} */
+
+.field input {
+    padding: 0 12px;
+}
+
+.autocompleter {
+    background: #f0f0f0;
+    z-index: 100;
+}
+
+.autocompleter, .autocompleter-hint {
+    position: absolute;
+}
+
+.autocompleter-item-selected {
+    background: #dbed8a;
+}
+
+.autocompleter-item {
+    /* 调节上下左右间距 */
+    padding: 3px 12px;
+    color: #444444;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.autocompleter-item:hover {
+    background: #dbed8a;
+}
+
+.autocompleter-item strong {
+    background: #f9de8f;
+    text-shadow: 0 1px 0 #ffffff;
+}
+
+.autocompleter-item span {
+    color: #bbbbbb;
+}
+
+.autocompleter-hint {
+    color: #ccc;
+    text-align: left;
+    top: -38px;
+    font-weight: 400;
+    left: 0;
+    width: 100%;
+    padding: 12px 12px 12px 13px;
+    font-size: 16px;
+    display: none;
+}
+
+.autocompleter-hint span {
+    color: transparent;
+}
+
+/* .autocompleter-hint-show {
+    display: block;
+} */
+
+.autocompleter-closed {
+    display: none;
+}

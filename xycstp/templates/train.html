@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>星云 大学生家教平台</title>
+    <meta charset="utf-8">
+
+    <!-- 移动设备优先 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/qidian.ico">
+    <link rel="stylesheet" href="../static/css/tests.css">
+    <link rel="stylesheet" href="../static/css/all.css">
+
+
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <!-- header -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <div class="row justify-content-around log">
+                <div class="col-sm-4">
+                    <a class="navbar-brand" href="#">
+                        <img src="../static/img/qidian.png" width="30" height=100% class="d-inline-block align-top" alt="" loading="lazy">
+                        <strong> 星云 大学生家教平台</strong>
+                    </a>
+                </div>
+            </div>
+            <div class="btn-group right" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary right">
+                <a class="align-middle log" href="#"> 用户名 </a>
+            </button>
+                <button type="button" class="btn btn-secondary right">
+                <a class="align-middle log" href="personal_student.html"> 个人中心 </a>
+            </button>
+            </div>
+        </div>
+    </nav>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="con-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"> 星云 </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home.html"> 首页 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tutor.html"> 导师 </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bbs.html"> 学习社区 </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tests.html"> 题库 </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        其他服务
+                    </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#"> 定向名师课程 </a>
+                            <a class="dropdown-item" href="#"> 待添加 </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+
+    <!-- 分类导航栏 -->
+    <div class="container">
+        <ul class="con-center">
+            <li><a href="#" data-toggle="#chinese" id="chinese1">语文</a></li>
+            <li><a href="#" data-toggle="#math" id="math1">数学</a></li>
+            <li><a href="#" data-toggle="#english" id="english1">英语</a></li>
+            <li><a href="#" data-toggle="#physics" id="physics1">物理</a></li>
+            <li><a href="#" data-toggle="#chemistry" id="chemistry1">化学</a></li>
+            <li><a href="#" data-toggle="#biology" id="biology1">生物</a></li>
+            <li><a href="#" data-toggle="#politics" id="politics1">政治</a></li>
+            <li><a href="#" data-toggle="#history" id="history1">历史</a></li>
+            <li><a href="#" data-toggle="#geography" id="geography1">地理</a></li>
+        </ul>
+    </div>
+    <br>
+
+    <!-- 搜索试题 -->
+    <div class="container">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="搜索试题" aria-label="搜索试题" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> 搜索 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 试题栏 -->
+    <div class="container">
+        <!-- 试题展示 -->
+        <!-- 语文 -->
+        <div class="list-group" id="chinese2">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    语文
+                </h4>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+        </div>
+        <!-- 数学 -->
+        <div class="list-group" id="math2" style="display:none">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    数学
+                </h4>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+        </div>
+        <!-- 英语 -->
+        <div class="list-group" id="english2" style="display:none">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    英语
+                </h4>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+        </div>
+        <!-- 物理 -->
+        <div class="list-group" id="physics2" style="display:none">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    物理
+                </h4>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+        </div>
+        <!-- 化学 -->
+        <div class="list-group" id="chemistry2" style="display:none">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    化学
+                </h4>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+        </div>
+        <!-- 生物 -->
+        <div class="list-group" id="biology2" style="display:none">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    生物
+                </h4>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+        </div>
+        <!-- 政治 -->
+        <div class="list-group" id="politics2" style="display:none">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    政治
+                </h4>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+        </div>
+        <!-- 历史 -->
+        <div class="list-group" id="history2" style="display:none">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    历史
+                </h4>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+        </div>
+        <!-- 地理 -->
+        <div class="list-group" id="geography2">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    地理
+                </h4>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    题目
+                </h4>
+                <p class="list-group-item-text">
+                    题目详情
+                </p>
+            </a>
+        </div>
+
+        <!-- 翻页 -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">下一页</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <!-- footer -->
+    <div class="copyrights text-center">
+        <div>
+            <p>结尾部分【待修改】</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#chinese1").click(function() {
+                $("#chinese2,#math2,#english2,#physics2,#chemistry2,#biology2,#politics2,#history2,#geography2").hide();
+                $("#chinese2").show(); //切换显示状态
+            });
+        });
+        $(document).ready(function() {
+            $("#math1").click(function() {
+                $("#chinese2,#math2,#english2,#physics2,#chemistry2,#biology2,#politics2,#history2,#geography2").hide();
+                $("#math2").show(); //切换显示状态
+            });
+        });
+        $(document).ready(function() {
+            $("#english1").click(function() {
+                $("#chinese2,#math2,#english2,#physics2,#chemistry2,#biology2,#politics2,#history2,#geography2").hide();
+                $("#english2").show(); //切换显示状态
+            });
+        });
+        $(document).ready(function() {
+            $("#physics1").click(function() {
+                $("#chinese2,#math2,#english2,#physics2,#chemistry2,#biology2,#politics2,#history2,#geography2").hide();
+                $("#physics2").show(); //切换显示状态
+            });
+        });
+        $(document).ready(function() {
+            $("#chemistry1").click(function() {
+                $("#chinese2,#math2,#english2,#physics2,#chemistry2,#biology2,#politics2,#history2,#geography2").hide();
+                $("#chemistry2").show(); //切换显示状态
+            });
+        });
+        $(document).ready(function() {
+            $("#biology1").click(function() {
+                $("#chinese2,#math2,#english2,#physics2,#chemistry2,#biology2,#politics2,#history2,#geography2").hide();
+                $("#biology2").show(); //切换显示状态
+            });
+        });
+        $(document).ready(function() {
+            $("#politics1").click(function() {
+                $("#chinese2,#math2,#english2,#physics2,#chemistry2,#biology2,#politics2,#history2,#geography2").hide();
+                $("#politics2").show(); //切换显示状态
+            });
+        });
+        $(document).ready(function() {
+            $("#history1").click(function() {
+                $("#chinese2,#math2,#english2,#physics2,#chemistry2,#biology2,#politics2,#history2,#geography2").hide();
+                $("#history2").show(); //切换显示状态
+            });
+        });
+        $(document).ready(function() {
+            $("#geography1").click(function() {
+                $("#chinese2,#math2,#english2,#physics2,#chemistry2,#biology2,#politics2,#history2,#geography2").hide();
+                $("#geography2").show(); //切换显示状态
+            });
+        });
+    </script>
+
+</body>
+
+</html>

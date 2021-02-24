@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>星云 大学生家教平台</title>
+    <meta charset="utf-8">
+
+    <!-- 移动设备优先 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/qidian.ico">
+    <link rel="stylesheet" href="../static/css/all.css">
+    <link rel="stylesheet" href="../static/css/bbs.css">
+
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!-- header -->
+<nav class="navbar navbar-light bg-light">
+    <div class="container">
+        <div class="row justify-content-around log">
+            <div class="col-sm-4">
+                <a class="navbar-brand" href="#">
+                    <img src="../static/img/qidian.png" width="30" height=100% class="d-inline-block align-top" alt="" loading="lazy">
+                    <strong> 星云 大学生家教平台</strong>
+                </a>
+            </div>
+        </div>
+        <div class="btn-group right" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary right">
+                <a class="align-middle log" href="#"> 用户名 </a>
+            </button>
+            <button type="button" class="btn btn-secondary right">
+                <a class="align-middle log" href="personal_student.html"> 个人中心 </a>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- 导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="con-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"> 星云 </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home.html"> 首页 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tutor.html"> 导师 </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bbs.html"> 学习社区 </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tests.html"> 题库 </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        其他服务
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#"> 定向名师课程 </a>
+                        <a class="dropdown-item" href="#"> 待添加 </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="搜索" aria-label="搜索">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<br>
+
+<!-- 论坛导航栏 -->
+<div class="nav-right"><button type="button" class="btn btn-success">我要发贴</button></div>
+<div class="container">
+    <nav class="bbs" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">论坛首页</a></li>
+            <li class="breadcrumb-item"><a href="#">风云榜</a></li>
+            <li class="breadcrumb-item"><a href="#">其他分类</a></li>
+            <li class="breadcrumb-item"><a href="#">其他分类</a></li>
+            <li class="breadcrumb-item"><a href="#">其他分类</a></li>
+            </ol>
+    </nav>
+</div>
+
+<!-- 个人论坛名片 -->
+<div class="con-right">
+    <div id="top">个人资料</div>
+    <img src="../static/img/qidian.png" alt="头像">
+    <h4>用户名</h4>
+    <div class="content">
+        <p>用户等级</p>
+        <p>发帖数</p>
+        <p>回答数</p>
+        <p>最新贴子</p>
+    </div>
+</div>
+
+<!-- 左侧伸缩式菜单 -->
+<div class="menu">
+    <div id="top"></div>
+    <dl>
+        <dt>板块1</dt>
+        <dd>
+            <div class="item"><a href="#">分类1</a></div>
+            <div class="item"><a href="#">分类2</a></div>
+            <div class="item"><a href="#">分类3</a></div>
+        </dd>
+        <dt>板块2</dt>
+        <dd>
+            <div class="item"><a href="#">分类1</a></div>
+            <div class="item"><a href="#">分类2</a></div>
+            <div class="item"><a href="#">分类3</a></div>
+        </dd>
+        <dt>板块3</dt>
+        <dd>
+            <div class="item"><a href="#">分类1</a></div>
+            <div class="item"><a href="#">分类2</a></div>
+            <div class="item"><a href="#">分类3</a></div>
+        </dd>
+    </dl>
+    <div id="bottom"></div>
+</div>
+
+
+<!-- 正文 -->
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            热帖 分类一
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            热帖 分类二
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            热帖 分类三
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><a href="#">热帖简介</a></p>
+                <footer class="blockquote-footer">浏览量 <cite title="Source Title">楼主</cite></footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+<br>
+
+<!-- footer -->
+<div class="copyrights text-center">
+    <div>
+        <p>结尾部分【待修改】</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("dd").hide();//隐藏子菜单
+        $("dt").click(function(){
+            if($(this).next().is(":hidden")){
+                //slidedown 通过高度变化（向下增长）来动态显示匹配元素
+                $(this).next().slideDown("slow");
+            }else{
+                $(this).next().slideUp("slow");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

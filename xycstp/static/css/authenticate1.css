@@ -1,0 +1,67 @@
+/* 注册认证的css */
+
+
+#introduce{
+    padding: 50px;
+    color:blue;
+    font-size: 20px;
+    font-family: 楷体;
+}
+.header{
+    position: relative;
+}
+.logo{
+    display: inline-block;
+    margin-left:600px;
+    height: 100px;
+}
+.title{
+    display: inline-block;
+    position: absolute;
+    top:10px;
+    left:720px;
+    font-weight: 700;
+    font-size: 50px;
+}
+.box{
+    width: 1130px;
+    margin-left: 235px;
+    padding-left: 20px;
+    border: 1px solid #6c757d;
+}
+.feedback{
+    margin-left: 250px;
+    margin-right:200px;
+}
+.td1{
+    height:50px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-weight: 700;
+}
+.td2{
+    height:50px;
+    width: 200px;
+}
+.td3{
+    height:50px;
+    width: 200px;
+}
+
+.td4{
+    height:50px;
+    width: 100px;
+}
+.input{
+    margin-left: 55px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+.input:hover {
+    background-color: rgb(82, 219, 40);
+}
+
+
+

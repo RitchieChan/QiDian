@@ -1,0 +1,90 @@
+views.py文件引用：from newModel.models import *
+
+请在本app的models添加自己的model!!!
+请在本app的models添加自己的model!!!
+请在本app的models添加自己的model!!!
+
+
+一、类和继承关系：
+1.User类是Teacher类和Student类的基类
+2.UserDetail类是TeacherDetail和StudentDetail类的基类（抽象继承）
+
+二、提供的接口（也可以参考mytestCode.py的代码）：
+1.创建用户对象（最基本的对象）
+# 法一（推荐）：
+    NewUser = User.objects.create(account="123456", phoneNum="52342164", nickName="小明")
+# 法二(这个方法不能在创建时就设置数据)：
+    NewUser = User.createUser()
+2.设置用户对象的字段值：
+    NewUser.setInfo(email="2210086948@qq.com",...,...)
+
+3.为用户添加身份：
+（学生或老师身份）
+    NewUser.addIdentityTeacher()
+或者NewUser.addIdentityStudent()
+
+4.为用户对应的身份表添加相应的Detail信息表(得到一张空表)：
+    user_teacherInfo= NewUser.teacher
+    user_teacherInfo.addDetail()
+
+5.设置或修改老师或学生对象的详细信息：
+    user_teacherInfo.detailInfo.setInfo(
+        major="计算机科学与技术",
+        education="中山大学",
+        experience="三年授课经验",
+        age=15,gender=True,xxx,...)
+
+6.老师学生对应
+    s = Student.studentObj.get(user__nickName="小明")
+    t = Teacher.teacherObj.get(user__nickName="李老师")
+    connectTeacherStudent(t,s)
+
+7.老师获得自己对应的学生查询集：
+    (假如t是老师对象)
+    t.getStudents()
+    同理,学生对象获得对应的老师查询集方法为:
+    s.getTeachers()
+
+8.老师获得自己的擅长学科标签：
+    t.tags.all() (其实是标签查询集，可以用get或filter等获得需要的标签进行修改之类的操作)
+
+9. 关于tags类的Integer代表的年级之类的信息对应关系可以在myparser.py中的字典找到
+
+10.为老师增加学科标签：
+    t = Teacher.teacherObj.get(user__nickName="小明")
+    newTag = t.addTeachTag()
+    SubjectsStr="数学 物理 生物"
+    newTag.setInfo(LEVEL=2, GradeStart=7, GradeEnd=9, SubjectsData=SubjectsStr)
+
+以下为测试函数：
+def test1(request):
+    # 创建User+修改user表基本信息
+    # 法一（推荐）：
+    NewUser = User.objects.create(
+        account="123456", phoneNum="52342164", nickName="小明")
+    # 法二(这个方法不能在创建时就设置数据)：
+    # NewUser = User.createUser()
+    NewUser.setInfo(email="2210086948@qq.com")
+    # 添加老师身份
+    NewUser.addIdentityTeacher()
+    user_tInfo = NewUser.teacher
+    # 为用户绑定的老师对象添加详细信息表
+    user_tInfo.addDetail()
+    user_tInfo.detailInfo.setInfo(
+        major="计算机科学与技术", education="中山大学", experience="三年授课经验", age=15, gender=True)
+    return HttpResponse("test!")
+
+
+def test2(request):
+    s = Student.studentObj.get(user__nickName="中国移动")
+    t = Teacher.teacherObj.get(user__nickName="小明")
+    connectTeacherStudent(t, s)
+    return HttpResponse("test!")
+
+
+def test(request):
+    t = Teacher.teacherObj.get(user__nickName="小明")
+    newTag = t.addTeachTag()
+    SubjectsStr = "数学 物理 生物"
+    newTag.setInfo(LEVEL=2, GradeStart=7, GradeEnd=9, SubjectsData=SubjectsStr)
+    return HttpResponse("test!")

@@ -1,0 +1,59 @@
+#introduce{
+    margin-top: 50px;
+    padding: 50px;
+    border: 1px solid #6c757d;
+    color:blue;
+    font-size: 18px;
+    font-family: 楷体;
+}
+.head{
+    margin-left: 550px;
+    width:230px;
+    font-size: 40px;
+    font-weight: 700;
+}
+.feedback{
+    margin-top: 50px;
+}
+.td1{
+    height:50px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-weight: 700;
+    border: 2px solid black;
+}
+.td2{
+    height:50px;
+    width: 200px;
+    border: 2px solid black;
+}
+.td3{
+    height:50px;
+    width: 200px;
+    border: 2px solid black;
+}
+
+.td4{
+    height:50px;
+    width: 100px;
+    border: 2px solid black;
+}
+.tr{
+    background-color:  #f1f1f1;
+}
+.input{
+    margin-left: 55px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+.input:hover {
+    background-color: rgb(82, 219, 40);
+}
+.green{
+    color: green;
+}
+
+
+

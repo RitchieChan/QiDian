@@ -1,0 +1,618 @@
+{% extends 'personalBase.html' %}
+
+{% block privateCSS %}
+<link rel="stylesheet" href="/static/css/student.css">
+<link rel="stylesheet" href="/static/css/authenticate.css">
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#4f8cd4;">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img src="/static/img/qidian.png" height="50px" class="d-inline-block align-top m-auto" alt="星云大学生家教平台">
+      <div style="height:50px;line-height:50px" class="h4 d-inline-block">星云 大学生家教平台</div>
+    </a>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">主页</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/findTutor/">导师</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/bbs/">学习社区</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/train/">题库</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link">个人中心</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 左侧导航 -->
+<div class="row m-0">
+  <div class="con-left col-md-2 p-0" id="personal">
+    <div class="row">
+      <!-- 头像 -->
+      <div class="col-md-10 offset-md-1">
+        <img src="/static/img/qidian.png" class="rounded img-fluid" alt="头像">
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="center h5"> 用户名：{{user}}</div>
+    </div>
+    <div class="con-left-content" id="person1" data-son-id="#person2">
+      个人信息<i class="fa fa-arrow-circle-right"></i>
+    </div>
+    <div class="con-left-content" id="mystudent1" data-son-id="#mystudent2">
+      我的学生<i class="fa fa-arrow-circle-right"></i>
+    </div>
+    <div class="con-left-content" id="doc1" data-son-id="#doc2">
+      文件下载/上传
+      <i class="fa fa-arrow-circle-right"></i>
+    </div>
+    <div class="con-left-content" id="com1" data-son-id="#com2">
+      学生1V1交流
+      <i class="fa fa-arrow-circle-right"></i>
+    </div>
+
+    <!-- 老师认证 -->
+    <div class="con-left-content" id="auth1" data-son-id="#auth2">
+      完善认证信息
+      <i class="fa fa-arrow-circle-right"></i>
+    </div>
+
+    <div class="con-left-content" onclick="javascript:window.location.href='/personal/logout/'">
+      退出账号
+      <i class="fa fa-arrow-circle-right"></i>
+    </div>
+  </div>
+
+
+
+  <div class="content col-md-10 p-0">
+
+    <div id="person2" class="content-right">
+      <div>
+        <div class="card-header">
+            个人信息
+        </div>
+        <div class="std-inf">
+          <table>
+            <tbody>
+              <tr>
+                <td class="td_topcol" style="width:180px;"></td>
+                <td class="td_topcol"></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="tb_tit">账号信息</div>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"><span class="fim">*</span>昵称：</td>
+                <td><input class="form-control" type="text" id="login_name" value=""></td>
+              </tr>
+              <tr>
+                <td align="right"><span class="fim">*</span>密码：</td>
+                <td><input class="form-control" type="password" id="login_pass" value=""><span
+                    class="v_result"></span></td>
+              </tr>
+              <tr>
+                <td align="right"><span class="fim">*</span>手机号：</td>
+                <td><input class="form-control" type="email" id="login_email" value=""><span class="v_result"></span>
+                </td>
+              </tr>
+              <!-- <tr>
+                                  <td align="right"><span class="fim">*</span>验证码：</td>
+                                  <td><input class="form-control" type="email" id="login_email" value="" style="width: 100px;"><span class="v_result"></span></td>
+                              </tr> -->
+              <tr>
+                <td align="right"><span class="fim"></span>邮箱：</td>
+                <td><input class="form-control" type="tel" id="login_tel" value=""><span class="v_result"></span></td>
+              </tr>
+              <tr>
+                <td align="right"><span class="fim"></span>QQ：</td>
+                <td><input class="form-control" type="text" id="login_qq" value=""><span class="v_result"></span></td>
+              </tr>
+              <tr>
+                <td align="right"><span class="fim">*</span>身份：</td>
+                <td >&nbsp;&nbsp;<input type="radio"id="shenfeng1" name="shenfeng" value="std" checked>&nbsp;学生&nbsp;&nbsp;
+                  <input type="radio" id="shenfeng2"  name="shenfeng" value="tea">&nbsp;老师<span class="v_result"></span></td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="tb_tit">基本信息</div>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"><span class="fim">*</span>姓名：</td>
+                <td><input class="form-control" type="text" id="vol_true_name" value="" style="width: 206px;"><span
+                    class="v_result"></span></td>
+              </tr>
+              <tr>
+                <td align="right"><span class="fim">*</span>性别：</td>
+                <td>&nbsp;&nbsp;<input type="radio" name="gender" value="0" checked="">&nbsp;女&nbsp;&nbsp;<input
+                    type="radio" name="gender" value="1" >&nbsp;男<span class="v_result"></span></td>
+              </tr>
+              <tr>
+                <td align="right"><span class="fim">*</span>出生日期：</td>
+                <td class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                  <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                      <div class="input-group-text" style="cursor:pointer"><i class="fa fa-calendar"></i></div>
+                  </div>
+                  <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                </td>
+              <tr>
+                <td align="right"><span class="fim " style="width: 184px; ">*</span>所在地区：</td>
+                <td><select class="weui_select weui-select form-control " style="width: 206px;" id="vol_nationality"
+                    name="vol_nationality">
+                    <option value="">请选择</option>
+                    <option value="茂南区">茂南区</option>
+                    <option value="高州市">高州市</option>
+                    <option value="信宜市">信宜市</option>
+                    <option value="化州市">化州市</option>
+                    <option value="电白区">电白区</option>
+                    <option value="其它区">其他区</option>
+              </tr>
+              <tr>
+                <td align="right"><span class="fim">*详细地址：</span></td>
+                <td><input class="form-control" type="text" id="vol_address" value="" style="width:206px;"><span
+                    class="v_result"></span></td>
+              </tr>
+
+
+              <div class="teacher">
+                <tr>
+                  <td colspan="2">
+                    <div class="tb_tit">家教信息（老师版）</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="right"><span class="fim">就读/毕业高校：</span></td>
+                  <td><input class="form-control" type="text" id="vol_addressSchool" value="" style="width:200px;"><span
+                      class="v_result"></span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span class="fim">高校专业：</span></td>
+                  <td><input class="form-control" type="text" id="vol_Career" value="" style="width:200px;"><span
+                      class="v_result"></span></td>
+                </tr>
+                <tr>
+                  <td align="right"><span class="fim" style="width: 184px;">*</span>所在年级：</td>
+                  <td><select class="weui_select weui-select form-control " style="width: 200px;" id="vol_nationality"
+                      name="vol_nationality">
+                      <option value="">请选择</option>
+                      <option value="大一">大一</option>
+                      <option value="大二">大二</option>
+                      <option value="大三">大三</option>
+                      <option value="大四">大四</option>
+                      <option value="研一">研一</option>
+                      <option value="研二">研二</option>
+                      <option value="已毕业">已毕业</option>
+                </tr>
+
+                <tr>
+                  <td align="right"><span class="fim" style="width: 184px;">*</span>擅长科目：（主）</td>
+                  <td><select class="weui_select weui-select form-control " style="width: 200px;" id="vol_nationality"
+                      name="vol_nationality">
+                      <option value="">请选择</option>
+                      <option value="学习方法">学习方法</option>
+                      <option value="语文">语文</option>
+                      <option value="数学">数学</option>
+                      <option value="英语">英语</option>
+                      <option value="物理">物理</option>
+                      <option value="化学">化学</option>
+                      <option value="生物">生物</option>
+                      <option value="地理">地理</option>
+                      <option value="历史">历史</option>
+                      <option value="政治">政治</option>
+                </tr>
+                <tr>
+                  <td align="right"><span class="fim" style="width: 184px;">*</span>擅长科目：（副）</td>
+                  <td><select class="weui_select weui-select form-control " style="width: 200px;" id="vol_nationality"
+                      name="vol_nationality">
+                      <option value="">请选择</option>
+                      <option value="学习方法">学习方法</option>
+                      <option value="语文">语文</option>
+                      <option value="数学">数学</option>
+                      <option value="英语">英语</option>
+                      <option value="物理">物理</option>
+                      <option value="化学">化学</option>
+                      <option value="生物">生物</option>
+                      <option value="地理">地理</option>
+                      <option value="历史">历史</option>
+                      <option value="政治">政治</option>
+                </tr>
+                <tr>
+                  <td align="right"><span class="fim" style="width: 184px;">*</span>辅导形式：</td>
+                  <td><select class="weui_select weui-select form-control " style="width: 200px;" id="vol_nationality"
+                      name="vol_nationality">
+                      <option value="">请选择</option>
+                      <option value="线上（小假期）">线上（小假期）</option>
+                      <option value="线下（寒/暑假）">线下（寒/暑假）</option>
+                    </select></td>
+                </tr>
+              </div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="mystudent2" style="display:none" class="content-right">
+      <div class="card-header">我的学生</div>
+    </div>
+
+    <div id="doc2" style="display:none" class="content-right">
+      <div class="card-header">文件下载/上传</div>
+      <div class="row p-2 m-0">
+        <div class="col-md-1 align-self-center text-center">
+          返回 <li class="fa fa-mail-reply "> </li>
+        </div>
+        <div class="input-group col-md-6 pl-5 pr-5">
+          <input type="text" class="form-control" placeholder="请输入班级名">
+          <div class="input-group-append">
+            <button class="btn btn-info btn-search">查找</button>
+          </div>
+        </div>
+        <div class="col-md-4 align-self-center text-center">
+          <div class="row">
+            <div class="col-md-4">
+              下载 <li class="fa fa-download "> </li>
+            </div>
+            <div class="col-md-4">
+              上传 <li class="fa fa-upload "> </li>
+            </div>
+            <div class="col-md-4">
+              删除 <li class="fa fa-trash "> </li>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <table class="table table-striped table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">序号</th>
+            <th scope="col">班级</th>
+            <th scope="col">老师</th>
+            <th scope="col">上次更新时间</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td onclick="javascript:window.location.href='#'">Mark</td>
+            <td onclick="javascript:window.location.href='#'">Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div id="com2" style="display:none;height:500px;" class="content-right">
+      <div class="row m-0 p-0 h-100">
+
+        <div class="col-md-2 m-0 p-0 h-100 chatPeopleList" style="border-bottom:1px solid grey">
+          {% for data in chatData %}
+          <li class="chatPeople border-bottom" data-id="{{data.0.id}}">
+            <img src="/static/img/qidian.png">
+            <span class="chatName">{{data.0.userName}}</span>
+            <span class="chatTime">{{data.2.createTime.month}}/{{data.2.createTime.day}}</span>
+            <span class="chatPre">{{data.2.text}}</span>
+          </li>
+          {% endfor %}
+        </div>
+
+
+        <div class="col-md-10 m-0 p-0 h-100" style="border:1px solid grey">
+
+          <div class="card-header">
+            To：<strong class="text-center chatNameId"></strong>
+          </div>
+          <div class="chatContent p-4">
+            {%for data in chatData%}
+            <span data-id="{{data.0.id}}" class="chatContentId" style="display:none">
+              {% for message in data.1 %}
+              {% ifequal user.id message.sender_id %}
+              <div class="bubble me">
+                {{message.text}}
+              </div>
+              <input type="hidden" class="messageId" value=" {{message.id}}">
+              {% else %}
+              <div class="bubble you">
+                {{message.text}}
+              </div>
+              <input type="hidden" class="messageId" value=" {{message.id}}">
+              {%endifequal%}
+              {%endfor%}
+
+            </span>
+            {% endfor %}
+
+          </div>
+          <div class="inputChat" style="display: none;">
+            <input type="hidden" value="{{user.id}}" class="senderBox">
+            <input type="text" class="inputBox">
+            <li class="fa fa-send fa-lg"></li>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- 老师认证显示区域 -->
+    <div id="auth2" style="display:none" class="content-right">
+      <div class="head card-header">老师认证</div>
+      <div>
+        <!-- 注释说明 -->
+        <div id="introduce">
+          <div class="box">
+            <h5>为保证本站的诚信环境，以下几种照片，经网站管理人员审核通过后，您就可成为星云家教网的认证老师，具体操作如下：<br></h5>
+            <p> 1.教师资格证与学生证两项必须且只能提交其中一项<br></p>
+            <p> 2.身份证必须提交<br></p>
+            <p> 3.英语考试证可提交四六级或雅思托福等考试成绩证明，非必须提交，但提交越完善，越方便于找到工作<br></p>
+            <p> 4.自定义认证是指，用户可自己填写。具体如辅导机构工作证明、各种比赛获奖证书等<br></p>
+            <p> 5.所有证件不得遮挡编号，有照片的证件需要露出本人照片、和家教信息相符的姓名、不得只上传封皮照片。<br></p>
+            <p> 星云家教网郑重承诺：用户上传的所有证件图片信息，仅供本站审核使用，非经本人允许，决不公开。<br></p>
+            <p> 最后的小提示：认证的证件越全面，您被客服推荐、家长查看的机率就越高</p>
+          </div>
+        </div>
+
+        <!-- 上传图片区 -->
+        <div class="feedback">
+          <h3 class="title mb">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在线提交证件图片,24小时内快速认证（图片要求小于1M、jpg格式）</h3>
+          <table width="95%" border="1" align="center" cellpadding="1" cellspacing="0" class="table-result">
+            {% csrf_token %}
+
+
+            <!-- 老师 -->
+            <form action="{% url '' %}" method="post" enctype="multipart/form-data">
+
+              <tr class="tr">
+                <td class="td1">教师资格证</td>
+                <td class="td2">
+                  {% if obj.teacherStatus == Null or obj.teacherStatus == 0%}
+                  <input type="file" name="0" /><input type="hidden" name="cid" value="1" />
+                  {% elif obj.teacherStatus == 1 %}
+                  <div class="green">正在审核中.....</div>
+                  {% elif obj.teacherStatus == 2 %}
+                  <div class="green">认证已通过！</div>
+                  {% elif obj.teacherStatus == 3 %}
+                  <input type="file" name="0" /><input type="hidden" name="cid" value="1" />
+                  <span style="color: orangered">(认证失败！可重新提交)</span>
+                  {% endif %}
+                </td>
+                <td class="td3" align="center">
+                  <div class="box1">仅供网站审核，不对任何人公开</div>
+                </td>
+                <td class="td4">
+                  <input type="submit" value="上传" class="input">
+                </td>
+              </tr>
+            </form>
+
+
+            <!-- 学生证 -->
+            <form action="{% url '' %}" method="post" enctype="multipart/form-data">
+              <tr class="tr">
+                <td class="td1">学生证</td>
+                <td class="td2">
+                  {% if obj.studentStatus == Null or obj.studentStatus == 0%}
+                  <input type="file" name="0" /><input type="hidden" name="cid" value="2" />
+                  {% elif obj.studentStatus == 1 %}
+                  <div class="green">正在审核中.....</div>
+                  {% elif obj.studentStatus == 2 %}
+                  <div class="green">认证已通过！</div>
+                  {% elif obj.studentStatus == 3 %}
+                  <input type="file" name="0" /><input type="hidden" name="cid" value="2" />
+                  <span style="color: orangered">(认证失败！可重新提交)</span>
+                  {% endif %}
+                </td>
+                <td class="td3" align="center">
+                  <div>仅供网站审核，不对任何人公开</div>
+                </td>
+                <td class="td4">
+                  <input type="submit" value="上传" class="input" />
+                </td>
+              </tr>
+            </form>
+
+
+            <!-- 身份证 -->
+            <form action="{% url '' %}" method="post" enctype="multipart/form-data">
+              <tr class="tr">
+                <td class="td1">身份证</td>
+                <td class="td2">
+                  {% if obj.idStatus == Null or obj.idStatus == 0 %}
+                  <input type="file" name="0" /><input type="hidden" name="cid" value="3" />
+                  {% elif obj.idStatus == 1 %}
+                  <div class="green">正在审核中.....</div>
+                  {% elif obj.idStatus == 2 %}
+                  <div class="green">认证已通过！</div>
+                  {% elif obj.idStatus == 3 %}
+                  <input type="file" name="0" /><input type="hidden" name="cid" value="3" />
+                  <span style="color: orangered">(认证失败！可重新提交)</span>
+                  {% endif %}
+                </td>
+                <td class="td3" align="center">
+                  <div>仅供网站审核，不对任何人公开</div>
+                </td>
+                <td class="td4">
+                  <input type="submit" value="上传" class="input" />
+                </td>
+              </tr>
+            </form>
+
+
+            <!-- 英语 -->
+            <form action="{% url '' %}" method="post" enctype="multipart/form-data">
+              <tr class="tr">
+                <td class="td1">英语考试证</td>
+                <td class="td2">
+                  {% if obj.EnglishStatus == Null or obj.EnglishStatus == 0%}
+                  <input type="file" name="0" /><input type="hidden" name="cid" value="4" />
+                  {% elif obj.EnglishStatus == 1 %}
+                  <div class="green">正在审核中.....</div>
+                  {% elif obj.EnglishStatus == 2 %}
+                  <div class="green">认证已通过！</div>
+                  {% elif obj.EnglishStatus == 3 %}
+                  <input type="file" name="0" /><input type="hidden" name="cid" value="4" />
+                  <span style="color: orangered">(认证失败！可重新提交)</span>
+                  {% endif %}
+                </td>
+                <td class="td3" align="center">
+                  <div>仅供网站审核，不对任何人公开</div>
+                </td>
+                <td class="td4">
+                  <input type="submit" value="上传" class="input" />
+                </td>
+              </tr>
+            </form>
+
+
+            <!-- 其他 -->
+            <form action="{% url '' %}" method="post" enctype="multipart/form-data">
+              <tr class="tr">
+                <td class="td1">其他认证</td>
+                <td class="td2">
+                  {% if obj.ElseStatus == Null or obj.ElseStatus == 0%}
+                  <input type="file" name="0" /><input type="hidden" name="cid" value="5" />
+                  {% elif obj.ElseStatus == 1 %}
+                  <div class="green">正在审核中.....</div>
+                  {% elif obj.ElseStatus == 2 %}
+                  <div class="green">认证已通过！</div>
+                  {% elif obj.ElseStatus == 3 %}
+                  <input type="file" name="0" /><input type="hidden" name="cid" value="5" />
+                  <span style="color: orangered">(认证失败！可重新提交)</span>
+                  {% endif %}
+                </td>
+                <td class="td3" align="center">
+                  <div>仅供网站审核，不对任何人公开</div>
+                </td>
+                <td class="td4">
+                  <input type="submit" value="上传" class="input" />
+                </td>
+              </tr>
+            </form>
+
+          </table>
+          <br />
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+{% block privateJS %}
+<script>
+
+  $(document).ready(function () {
+    setInterval(updateMsg,500);
+    $(".con-left-content").click(function () {
+      var sonid = $(this).attr("data-son-id");
+      $(".content-right").hide();
+      $(sonid).show();
+    });
+    $(".inputChat li").click(function () {
+      var text = $(".inputChat .inputBox").val();
+      var id_send = $(".inputChat .senderBox").val();
+      var id_receive = $(".chatPeopleList .active").attr("data-id");
+      var data = { "text": text, 'post_type': "send_chat", "id_send": id_send, "id_receive": id_receive };
+      if(text == ""){
+        return ;
+      }
+      $.post("/personal/post/",
+        data,
+        function (data) {
+          $(".inputChat .inputBox").val("");  //消息发送成功后清空内容框  
+        }, 'text');
+    });
+
+    $(".chatPeople").click(function () {
+      $(".inputChat").show();
+      $(".chatPeople").removeClass("active");
+      $(this).addClass("active");
+      var chatId = $(this).attr("data-id");
+      $(".chatNameId").text($(this).find(".chatName").text() + "学生");
+      $(".chatContentId").hide();
+      $(".chatContentId[data-id=" + chatId + "]").show();
+    })
+    $(document).keydown(function(){
+        if (event.keyCode == 13) {
+          $(".inputChat li").click();
+        }
+    });  //当按下键盘"enter"时，触发按钮点击
+  })
+
+  function updateMsg() {
+    send_data = [];
+    var id_send = $(".inputChat .senderBox").val()
+    $(".chatContentId").each(function () {
+      var last_chat_id = $(this).find(".messageId").last().val();
+      var id_receive = $(this).attr("data-id");
+      tempDic = { "last_chat_id": last_chat_id, "id_receive": id_receive }
+      send_data.push(tempDic)
+    })
+
+    $.post(
+      "/personal/post/",
+      {
+        "id_send": id_send,
+        "send_data": JSON.stringify(send_data),
+        "post_type": 'get_chat'
+        // 请求所需数据
+      },
+      function (data) {
+        for (var i = 0; i < data.length; i++) {
+          for (var j = 0; j < data[i].length; j++) {
+            if (data[i][j][1] == $(".inputChat .senderBox").val()) {
+              $('.chatContentId').append('<div class="bubble you">' + data[i][j][0] + '</div>');
+              $('.chatContentId').append('<input type="hidden" class="messageId" value="' + data[i][j][2] + '">');
+            }
+            else {
+              $('.chatContentId').append('<div class="bubble me">' + data[i][j][0] + '</div>');
+              $('.chatContentId').append('<input type="hidden" class="messageId" value="' + data[i][j][2] + '">');
+            }
+          }
+        }
+      });
+  }
+</script>
+{% endblock %}

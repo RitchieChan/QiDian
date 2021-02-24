@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>星云 大学生家教平台</title>
+    <meta charset="utf-8">
+
+    <!-- 移动设备优先 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/qidian.ico">
+    <link rel="stylesheet" href="/static/css/all.css">
+    <link rel="stylesheet" href="/static/css/class.css">
+
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!-- header -->
+<nav class="navbar navbar-light bg-light">
+    <div class="container">
+        <div class="row justify-content-around log">
+            <div class="col-sm-4">
+                <a class="navbar-brand" href="#">
+                    <img src="/static/img/qidian.png" width="30" height=100% class="d-inline-block align-top" alt="" loading="lazy">
+                    <strong> 星云 大学生家教平台</strong>
+                </a>
+            </div>
+        </div>
+        <div class="btn-group right" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary right">
+                <a class="align-middle log" href="#"> 用户名 </a>
+            </button>
+            <button type="button" class="btn btn-secondary right">
+                <a class="align-middle log" href="personal_student.html"> 个人中心 </a>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- 导航栏 -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="con-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"> 星云 </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home.html"> 首页 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="bbs.html"> 学习社区 </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tests.html"> 题库 </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    其他服务
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#"> 定向名师课程 </a>
+                        <a class="dropdown-item" href="#"> 申请导师 </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">其他</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="搜索" aria-label="搜索">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<br>
+
+
+<div class="container">
+    <div class="row">
+        <img src="/static/img/qidian.png" alt="" class="class-img">
+        <div class="col class-con">
+            <h4>导师简介</h4>
+            <p>导师简介</p>
+        </div>
+    </div>
+</div>
+<br>
+
+    <!-- 课程评价 -->
+<div class="container assess">
+    <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">评价</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Disabled</a>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">导师评价</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="page">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+    </div>
+<br>
+
+<!-- 其他导师 -->
+<div class="card-header">
+    相似导师推荐
+</div>
+<div class="card-deck">
+    <div class="card">
+        <img src="/static/img/qidian.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+        </div>
+        </div>
+        <div class="card">
+        <img src="/static/img/qidian.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+        </div>
+        </div>
+        <div class="card">
+        <img src="/static/img/qidian.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- footer -->
+<div class="copyrights text-center">
+    <div>
+        <p>结尾部分【待修改】</p>
+    </div>
+</div>
+</body>
+</html>
